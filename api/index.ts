@@ -4,7 +4,7 @@ import { RedirectToGithub } from '../static/js/githubref';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
     try {
-        const cssContent = fs.readFileSync('./index.css', 'utf-8');
+        const cssContent = fs.readFileSync('./styles.css', 'utf-8');
         res.setHeader('Content-Type', 'text/css');
         res.send(cssContent);
 
