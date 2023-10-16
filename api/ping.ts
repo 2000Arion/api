@@ -10,4 +10,5 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   } else if (lang == 'en') {
     return res.status(200).send(`The page was loaded in ${durationInMilliseconds}ms.`)
   }
+  res.end();
 }
