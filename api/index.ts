@@ -8,12 +8,10 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
             if (path.endsWith("index.html")) {
                 let result = path.slice(0, path.length - "index.html".length);
                 res.writeHead(302, { Location: `https://github.com/2000Arion/api/tree/main${result}` });
-                res.send("Weiterleitung...");
                 res.end();
             } else {
                 let result = req.url;
                 res.writeHead(302, { Location: `https://github.com/2000Arion/api/tree/main${result}` });
-                res.send("Weiterleitung...");
                 res.end();
             }
         } else {
