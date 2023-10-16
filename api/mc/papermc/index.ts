@@ -1,5 +1,4 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import * as fs from 'fs';
 import { RedirectToGithub } from '../../../static/js/githubref';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
@@ -12,5 +11,4 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         console.error(error);
         res.status(500).send(`${error}`);
     }
-    res.end();
 }
