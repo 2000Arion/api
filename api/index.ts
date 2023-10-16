@@ -2,17 +2,18 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
     try {
-        res.send("Weiterleitung...");
 
         if (req.url) {
             const path = req.url;
             if (path.endsWith("index.html")) {
                 let result = path.slice(0, path.length - "index.html".length);
                 res.writeHead(302, { Location: `https://github.com/2000Arion/api/tree/main${result}` });
+                res.send("Weiterleitung...");
                 res.end();
             } else {
                 let result = req.url;
                 res.writeHead(302, { Location: `https://github.com/2000Arion/api/tree/main${result}` });
+                res.send("Weiterleitung...");
                 res.end();
             }
         } else {
