@@ -18,7 +18,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const projectData = await route_projects_project.json();
 
         const latestVersion = projectData.versions[projectData.versions.length - 1];
-        console.log(latestVersion);
 
         // https://api.papermc.io/v2/projects/${project}/versions/${latestVersion} abfragen und neuesten Build speichern:
         const route_projects_project_versions_version = await fetch(`https://api.papermc.io/v2/projects/${project}/versions/${latestVersion}`);
@@ -28,7 +27,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const versionData = await route_projects_project_versions_version.json();
 
         const latestBuild = versionData.builds[versionData.builds.length - 1];
-        console.log(latestBuild);
 
         // https://api.papermc.io/v2/projects/${project}/versions/${latestVersion}/builds/${latestBuild} abfragen und neuesten Build speichern:
         const route_projects_project_versions_version_builds_build = await fetch(`https://api.papermc.io/v2/projects/${project}/versions/${latestVersion}/builds/${latestBuild}`);
