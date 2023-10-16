@@ -2,8 +2,6 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
     try {
-        res.send("Weiterleitung...");
-
         if (req.url) {
             const path = req.url;
             if (path.endsWith("index.html")) {
