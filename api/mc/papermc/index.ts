@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import * as fs from 'fs';
-import { RedirectToGithub } from '../../../static/js/githubref.ts';
+import { RedirectToGithub } from '../../../static/js/githubref';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
     try {
