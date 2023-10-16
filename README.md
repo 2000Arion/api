@@ -1,3 +1,9 @@
 # arion2000.xyz API
 
-Work in progress...
+This API currently includes the following functions
+
+- Ping
+- Redirect to the latest build of a PaperMC software
+- Redirect to the latest build of a specific version of PaperMC software
+
+Things will be added soon.
