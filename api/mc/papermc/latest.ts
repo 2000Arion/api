@@ -3,13 +3,11 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     try {
         // URL-Parameter:
-        const {
-            project
-        } = req.query;
+        const { project } = req.query;
 
         // Prüfen, ob URL-Parameter angegeben wurden:
         if (!project) {
-            throw new Error(`Du musst ein Projekt über den Parameter project angeben!`)
+            throw new Error(`Du musst ein Projekt über den Parameter project angeben!`);
         }
 
         // https://api.papermc.io/v2/projects/${project} abfragen und neueste Version speichern:
@@ -17,9 +15,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         if (!route_projects_project.ok) {
             throw new Error(`${route_projects_project.status} ${route_projects_project.statusText}`);
         }
-        const project_json: any = await route_projects_project.json();
+        const projectData = await route_projects_project.json();
 
-        const latestVersion = project_json[project_json.versions.length - 1];
+        const latestVersion = projectData.versions[projectData.versions.length - 1];
         console.log(latestVersion);
 
         // https://api.papermc.io/v2/projects/${project}/versions/${latestVersion} abfragen und neuesten Build speichern:
@@ -27,9 +25,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         if (!route_projects_project_versions_version.ok) {
             throw new Error(`${route_projects_project_versions_version.status} ${route_projects_project_versions_version.statusText}`);
         }
-        const versions_json: any = await route_projects_project_versions_version.json();
+        const versionData = await route_projects_project_versions_version.json();
 
-        const latestBuild = versions_json[versions_json.builds.length - 1];
+        const latestBuild = versionData.builds[versionData.builds.length - 1];
         console.log(latestBuild);
 
         // https://api.papermc.io/v2/projects/${project}/versions/${latestVersion}/builds/${latestBuild} abfragen und neuesten Build speichern:
@@ -37,10 +35,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         if (!route_projects_project_versions_version_builds_build.ok) {
             throw new Error(`${route_projects_project_versions_version_builds_build.status} ${route_projects_project_versions_version_builds_build.statusText}`);
         }
-        const build_json: any = await route_projects_project_versions_version_builds_build.json();
+        const buildData = await route_projects_project_versions_version_builds_build.json();
 
-        const downloadname = build_json.downloads.application.name;
-        const downloadurl = `https://api.papermc.io/v2/projects/${project}/versions/${latestVersion}/builds/${latestBuild}/downloads/${downloadname}`
+        const downloadname = buildData.downloads.application.name;
+        const downloadurl = `https://api.papermc.io/v2/projects/${project}/versions/${latestVersion}/builds/${latestBuild}/downloads/${downloadname}`;
 
         // Zu Downloadurl weiterleiten:
         res.writeHead(302, { Location: downloadurl });
@@ -49,7 +47,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         console.error(error);
         return res.status(500).json({
             error: `${error.message}`,
-        })
-
+        });
     }
 }
