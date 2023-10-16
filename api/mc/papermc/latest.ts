@@ -30,8 +30,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             }
             const versions_json: any = await route_projects_project_versions_version.json();
 
-            if (versions_json.length > 0) {
-                const latestBuild = versions_json[versions_json.length - 1];
+            if (versions_json.builds.length > 0) {
+                const latestBuild = versions_json[versions_json.builds.length - 1];
                 console.log(latestBuild);
 
                 // https://api.papermc.io/v2/projects/${project}/versions/${latestVersion}/builds/${latestBuild} abfragen und neuesten Build speichern:
@@ -41,14 +41,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 }
                 const build_json: any = await route_projects_project_versions_version_builds_build.json();
 
-                if (build_json.length > 0) {
-                    const downloadname = build_json.downloads.application.name;
-                    const downloadurl = `https://https://api.papermc.io/v2/projects/${project}/versions/${latestVersion}/builds/${latestBuild}/downloads/${downloadname}`
+                const downloadname = build_json.downloads.application.name;
+                const downloadurl = `https://https://api.papermc.io/v2/projects/${project}/versions/${latestVersion}/builds/${latestBuild}/downloads/${downloadname}`
 
-                    // Zu Downloadurl weiterleiten:
-                    res.writeHead(302, { Location: downloadurl });
-                    res.end();
-                }
+                // Zu Downloadurl weiterleiten:
+                res.writeHead(302, { Location: downloadurl });
+                res.end();
             } else {
                 throw new Error(`Das Array unter https://api.papermc.io/v2/projects/${project}/versions/${latestVersion} ist leer.`)
             }
