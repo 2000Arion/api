@@ -2,11 +2,14 @@ import { VercelRequest, VercelResponse } from '@vercel/node';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
     try {
-
         if (req.url) {
             const path = req.url;
             if (path.endsWith("index.html")) {
                 let result = path.slice(0, path.length - "index.html".length);
+                res.writeHead(302, { Location: `https://github.com/2000Arion/api/tree/main${result}` });
+                res.end();
+            } else if (path.endsWith("index")) {
+                let result = path.slice(0, path.length - "index".length);
                 res.writeHead(302, { Location: `https://github.com/2000Arion/api/tree/main${result}` });
                 res.end();
             } else {
