@@ -10,10 +10,10 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
         res.send("Weiterleitung...");
 
-        res.send(RedirectToGithub());
+        res.send(RedirectToGithub);
     } catch (error) {
         console.error(error);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send(`Internal Server Error: ${error}`);
     }
     res.end();
 }
