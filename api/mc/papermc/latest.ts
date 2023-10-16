@@ -40,7 +40,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const build_json: any = await route_projects_project_versions_version_builds_build.json();
 
         const downloadname = build_json.downloads.application.name;
-        const downloadurl = `https://https://api.papermc.io/v2/projects/${project}/versions/${latestVersion}/builds/${latestBuild}/downloads/${downloadname}`
+        const downloadurl = `https://api.papermc.io/v2/projects/${project}/versions/${latestVersion}/builds/${latestBuild}/downloads/${downloadname}`
 
         // Zu Downloadurl weiterleiten:
         res.writeHead(302, { Location: downloadurl });
