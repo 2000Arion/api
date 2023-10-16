@@ -1,0 +1,26 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "arion2000.xyz API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2000arion/api.git"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "Arion2000",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2000arion/api/issues"
+  },
+  "homepage": "https://github.com/2000arion/api#readme",
+  "dependencies": {
+    "@vercel/node": "^3.0.7",
+    "vercel": "^32.4.1"
+  }
+}
