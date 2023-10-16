@@ -19,7 +19,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         }
         const project_json: any = await route_projects_project.json();
 
-        if (project_json.length > 0) {
+        if (project_json.versions.length > 0) {
             const latestVersion = project_json[project_json.length - 1];
             console.log(latestVersion);
 
@@ -30,7 +30,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             }
             const versions_json: any = await route_projects_project_versions_version.json();
 
-            if (versions_json > 0) {
+            if (versions_json.length > 0) {
                 const latestBuild = versions_json[versions_json.length - 1];
                 console.log(latestBuild);
 
@@ -41,7 +41,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 }
                 const build_json: any = await route_projects_project_versions_version_builds_build.json();
 
-                if (build_json > 0) {
+                if (build_json.length > 0) {
                     const downloadname = build_json.downloads.application.name;
                     const downloadurl = `https://https://api.papermc.io/v2/projects/${project}/versions/${latestVersion}/builds/${latestBuild}/downloads/${downloadname}`
 
