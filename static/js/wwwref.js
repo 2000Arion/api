@@ -1,3 +1,3 @@
 function onLoad() {
-    window.location.href = "https://arion2000.xyz";
+    window.location.href = "https://github.com/2000Arion/api/tree/main";
 }
