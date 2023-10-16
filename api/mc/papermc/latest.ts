@@ -20,7 +20,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const project_json: any = await route_projects_project.json();
 
         if (project_json.versions.length > 0) {
-            const latestVersion = project_json[project_json.length - 1];
+            const latestVersion = project_json[project_json.versions.length - 1];
             console.log(latestVersion);
 
             // https://api.papermc.io/v2/projects/${project}/versions/${latestVersion} abfragen und neuesten Build speichern:
