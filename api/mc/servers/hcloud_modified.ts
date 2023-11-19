@@ -28,5 +28,6 @@ const serverData = {
 };
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.json(serverData);
 }
