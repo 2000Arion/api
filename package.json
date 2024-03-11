@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/2000arion/api#readme",
   "dependencies": {
-    "@vercel/node": "^3.0.20",
+    "@vercel/node": "^3.0.22",
     "uuid": "^9.0.1",
     "vercel": "^33.5.5"
   }
