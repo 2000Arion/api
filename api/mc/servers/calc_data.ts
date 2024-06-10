@@ -13,14 +13,10 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
             { id: '${uuid()}', vCPU: 16, RAM: 30, SSD: 310, hourly: 0.0470, monthly: 29.14, fees: 0.05 },
         ],
         premium: [
-            { id: '${uuid()}', vCPU: 2, RAM: 3, SSD: 30, hourly: 0.0104, monthly: 6.37, fees: 0.05 },
-            { id: '${uuid()}', vCPU: 3, RAM: 3, SSD: 70, hourly: 0.0143, monthly: 8.98, fees: 0.05 },
-            { id: '${uuid()}', vCPU: 2, RAM: 7, SSD: 70, hourly: 0.0182, monthly: 11.54, fees: 0.05 },
-            { id: '${uuid()}', vCPU: 4, RAM: 7, SSD: 150, hourly: 0.0261, monthly: 16.18, fees: 0.05 },
-            { id: '${uuid()}', vCPU: 4, RAM: 15, SSD: 150, hourly: 0.0340, monthly: 20.71, fees: 0.05 },
-            { id: '${uuid()}', vCPU: 8, RAM: 15, SSD: 230, hourly: 0.0496, monthly: 29.99, fees: 0.05 },
-            { id: '${uuid()}', vCPU: 8, RAM: 30, SSD: 230, hourly: 0.0653, monthly: 39.15, fees: 0.05 },
-            { id: '${uuid()}', vCPU: 16, RAM: 30, SSD: 350, hourly: 0.1047, monthly: 65.33, fees: 0.05 },
+            { id: '${uuid()}', vCPU: 2, RAM: 3, SSD: 30, hourly: 0.0071, monthly: 4.51, fees: 0.05 },
+            { id: '${uuid()}', vCPU: 4, RAM: 7, SSD: 70, hourly: 0.0134, monthly: 8.09, fees: 0.05 },
+            { id: '${uuid()}', vCPU: 8, RAM: 15, SSD: 150, hourly: 0.0325, monthly: 19.52, fees: 0.05 },
+            { id: '${uuid()}', vCPU: 16, RAM: 30, SSD: 310, hourly: 0.0643, monthly: 38.56, fees: 0.05 },
         ],
         dedicated: [
             { id: '${uuid()}', vCPU: 2, RAM: 7, SSD: 70, hourly: 0.0238, monthly: 14.86, fees: 0.05 },
