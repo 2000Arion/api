@@ -1,9 +1,9 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { v4 as uuid } from 'uuid';
+import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { v4 as uuid } from "uuid";
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.send(`
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.send(`
     // Server data
     const serverData = {
     standard: [
@@ -27,5 +27,5 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
         { id: '${uuid()}', vCPU: 48, RAM: 185, SSD: 950, hourly: 0.5501, monthly: 343.30, fees: 0.20 },
     ],
 };
-    `)
+    `);
 }
