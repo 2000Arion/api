@@ -21,6 +21,6 @@
   "dependencies": {
     "@vercel/node": "^3.2.24",
     "uuid": "^11.0.3",
-    "vercel": "^39.0.1"
+    "vercel": "^39.0.2"
   }
 }
