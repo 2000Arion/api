@@ -8,10 +8,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { lb = false } = req.query;
 
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Content-Type", "application/javascript");
+    res.setHeader("Content-Type", "application/json");
 
     if (lb === "true") {
-      const dataPackagePath = path.join(__dirname, "lib/pricing_package.ts");
+      const dataPackagePath = path.join(__dirname, "pricing_package.json");
       console.log("---------\n[1 DEBUG] --- calc_data.ts path:", __filename);
       console.log("[2 DEBUG] --- Data package path:", dataPackagePath);
       let dataPackageContent = await fs.readFile(dataPackagePath, "utf-8");
@@ -34,12 +34,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         .join("\n");
 
       res.send(dataPackageContent);
+      res.end();
     } else {
-      const legacyDataPackagePath = path.join(
-        __dirname,
-        "lib/pricing_package_legacy.ts"
-      );
-      console.log("Legacy data package path:", legacyDataPackagePath);
+      const legacyDataPackagePath = path.join(__dirname, "pricing_package_legacy.json");
+      console.log("---------\n[1 DEBUG] --- calc_data.ts path:", __filename);
+      console.log("[2 DEBUG] --- Data package path:", legacyDataPackagePath);
       let dataPackageContent = await fs.readFile(
         legacyDataPackagePath,
         "utf-8"
@@ -53,6 +52,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       );
 
       res.send(dataPackageContent);
+      res.end();
     }
   } catch (error) {
     console.error("Error processing request:", error);
