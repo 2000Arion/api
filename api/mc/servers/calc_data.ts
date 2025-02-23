@@ -5,13 +5,14 @@ import crypto from "crypto";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
-    const { lb = false } = req.query;
+    const { location_based = false } = req.query;
 
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Content-Type", "application/json");
 
-    if (lb === "true") {
-      const dataPackagePath = path.join(__dirname, "pricing_package.json");
+    if (location_based === "true") {
+      res.setHeader("Content-Type", "application/json");
+
+      const dataPackagePath = path.join(__dirname, "pricing_data.json");
       console.log("---------\n[1 DEBUG] --- calc_data.ts path:", __filename);
       console.log("[2 DEBUG] --- Data package path:", dataPackagePath);
       let dataPackageContent = await fs.readFile(dataPackagePath, "utf-8");
@@ -36,7 +37,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       res.send(dataPackageContent);
       res.end();
     } else {
-      const legacyDataPackagePath = path.join(__dirname, "pricing_package_legacy.json");
+      res.setHeader("Content-Type", "application/javascript");
+
+      const legacyDataPackagePath = path.join(
+        __dirname,
+        "pricing_data_legacy.json"
+      );
       console.log("---------\n[1 DEBUG] --- calc_data.ts path:", __filename);
       console.log("[2 DEBUG] --- Data package path:", legacyDataPackagePath);
       let dataPackageContent = await fs.readFile(
@@ -51,7 +57,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         }
       );
 
-      res.send(dataPackageContent);
+      let jsCompiledDataPackage = dataPackageContent.replace(/"/g, "");
+
+      res.send(
+        `// [WARNING: LEGACY VERSION] Server data\n// For new version, add ?location_based=true to the URL\n\nconst serverData = ${jsCompiledDataPackage}`
+      );
       res.end();
     }
   } catch (error) {
