@@ -11,7 +11,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.setHeader("Content-Type", "application/javascript");
 
     if (lb === "true") {
-      const dataPackagePath = path.join(process.cwd(), "/data/gsc-calc/pricing_package.ts");
+      const dataPackagePath = path.join(process.cwd(), "/data/gsc-calc/pricing_package.js");
       console.log("Data package path:", dataPackagePath);
       let dataPackageContent = await fs.readFile(dataPackagePath, "utf-8");
 
@@ -34,7 +34,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       res.send(dataPackageContent);
     } else {
-      const legacyDataPackagePath = path.join(process.cwd(), "/data/gsc-calc/pricing_package_legacy.ts");
+      const legacyDataPackagePath = path.join(process.cwd(), "/data/gsc-calc/pricing_package_legacy.js");
       console.log("Legacy data package path:", legacyDataPackagePath);
       let dataPackageContent = await fs.readFile(legacyDataPackagePath, "utf-8");
 
