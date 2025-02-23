@@ -10,7 +10,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader("Content-Type", "application/javascript");
 
   if (lb === "true") {
-    const dataPackagePath = path.join(__dirname, '../../../lib/gsc-calc/pricing_package.ts');
+    const dataPackagePath = path.join(process.cwd(), '/lib/gsc-calc/pricing_package.ts');
     let dataPackageContent = fs.readFileSync(dataPackagePath, 'utf-8');
 
     let currentProperty = "";
@@ -26,7 +26,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     res.send(dataPackageContent);
   } else {
-    const dataPackagePath = path.join(__dirname, '../../../lib/gsc-calc/pricing_package_legacy.ts'); 
+    const dataPackagePath = path.join(process.cwd(), '/lib/gsc-calc/pricing_package_legacy.ts'); 
     let dataPackageContent = fs.readFileSync(dataPackagePath, 'utf-8');
 
     dataPackageContent = dataPackageContent.replace(/\$\{id\((.*?)\)\}/g, (_, idValue) => {
