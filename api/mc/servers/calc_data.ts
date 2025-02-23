@@ -11,8 +11,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     res.setHeader("Content-Type", "application/javascript");
 
     if (lb === "true") {
-      const dataPackagePath = path.join(process.cwd(), "/data/gsc-calc/pricing_package.js");
-      console.log("Data package path:", dataPackagePath);
+      const dataPackagePath = path.join(__dirname, "lib/pricing_package.ts");
+      console.log("---------\n[1 DEBUG] --- calc_data.ts path:", __filename);
+      console.log("[2 DEBUG] --- Data package path:", dataPackagePath);
       let dataPackageContent = await fs.readFile(dataPackagePath, "utf-8");
 
       let currentProperty = "";
@@ -34,9 +35,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       res.send(dataPackageContent);
     } else {
-      const legacyDataPackagePath = path.join(process.cwd(), "/data/gsc-calc/pricing_package_legacy.js");
+      const legacyDataPackagePath = path.join(
+        __dirname,
+        "lib/pricing_package_legacy.ts"
+      );
       console.log("Legacy data package path:", legacyDataPackagePath);
-      let dataPackageContent = await fs.readFile(legacyDataPackagePath, "utf-8");
+      let dataPackageContent = await fs.readFile(
+        legacyDataPackagePath,
+        "utf-8"
+      );
 
       dataPackageContent = dataPackageContent.replace(
         /\$\{id\((.*?)\)\}/g,
