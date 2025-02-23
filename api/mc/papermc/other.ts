@@ -11,7 +11,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         }
 
         if (!version) {
-            throw new Error(`Du musst eine Version über den Parameter version angeben!`)
+            throw new Error(`Du musst eine Version über den Parameter version angeben!`);
         }
 
         // https://api.papermc.io/v2/projects/${project}/versions/${version} abfragen und neuesten Build speichern:
