@@ -7,7 +7,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       ? forwarded[0]
       : forwarded?.split(",")[0] ?? req.socket.remoteAddress;
 
-    res.status(200).send(ip);
+    res.status(200).send(ip + "\n");
     res.end();
   } catch (error) {
     console.error("Error retrieving IP adress:", error);
