@@ -4,7 +4,7 @@
       { "id": "${id(CAX11)}", "vCPU": 2, "RAM": 3, "SSD": 30, "hourly": 0.0073, "monthly": 4.51, "fees": 0.08 },
       { "id": "${id(CAX21)}", "vCPU": 4, "RAM": 7, "SSD": 70, "hourly": 0.0124, "monthly": 7.72, "fees": 0.1 },
       { "id": "${id(CAX31)}", "vCPU": 8, "RAM": 15, "SSD": 150, "hourly": 0.02, "monthly": 14.86, "fees": 0.12 },
-      { "id": "${id(CAX41)}", "vCPU": 16, "RAM": 30, "SSD": 310, "hourly": 0.0466, "monthly": 29.14, "fees": 0.13 }
+      { "id": "${id(CAX41)}", "vCPU": 16, "RAM": 30, "SSD": 310, "hourly": 0.0466, "monthly": 29.14, "fees": 0.17 }
     ],
     "premium_intel": [
       { "id": "${id(CX22)}", "vCPU": 2, "RAM": 3, "SSD": 30, "hourly": 0.007, "monthly": 4.51, "fees": 0.13 },
@@ -33,7 +33,7 @@
       { "id": "${id(CAX11)}", "vCPU": 2, "RAM": 3, "SSD": 30, "hourly": 0.0073, "monthly": 4.51, "fees": 0.08 },
       { "id": "${id(CAX21)}", "vCPU": 4, "RAM": 7, "SSD": 70, "hourly": 0.0124, "monthly": 7.72, "fees": 0.1 },
       { "id": "${id(CAX31)}", "vCPU": 8, "RAM": 15, "SSD": 150, "hourly": 0.02, "monthly": 14.86, "fees": 0.12 },
-      { "id": "${id(CAX41)}", "vCPU": 16, "RAM": 30, "SSD": 310, "hourly": 0.0466, "monthly": 29.14, "fees": 0.13 }
+      { "id": "${id(CAX41)}", "vCPU": 16, "RAM": 30, "SSD": 310, "hourly": 0.0466, "monthly": 29.14, "fees": 0.17 }
     ],
     "premium_intel": [
       { "id": "${id(CX22)}", "vCPU": 2, "RAM": 3, "SSD": 30, "hourly": 0.007, "monthly": 4.51, "fees": 0.13 },
