@@ -20,6 +20,6 @@
   "homepage": "https://github.com/2000arion/api#readme",
   "dependencies": {
     "@vercel/node": "^5.5.23",
-    "vercel": "^50.4.5"
+    "vercel": "^50.4.9"
   }
 }
