@@ -1,5 +1,14 @@
 {
   "de": {
+    "hint": "Server aus dieser Kategorie sind in dieser Region derzeit nicht verfügbar.",
+    "new": [
+      { "id": "${id(CB10)}", "vCPU": 4, "RAM": 7, "SSD": 60, "hourly": null, "monthly": 6.25, "fees": 0.1 },
+      { "id": "${id(CB20)}", "vCPU": 6, "RAM": 10, "SSD": 80, "hourly": null, "monthly": 9.52, "fees": 0.13 },
+      { "id": "${id(CB30)}", "vCPU": 8, "RAM": 22, "SSD": 180, "hourly": null, "monthly": 18.74, "fees": 0.16 },
+      { "id": "${id(CB40)}", "vCPU": 12, "RAM": 45, "SSD": 230, "hourly": null, "monthly": 33.32, "fees": 0.18 },
+      { "id": "${id(CB50)}", "vCPU": 16, "RAM": 62, "SSD": 280, "hourly": null, "monthly": 48.49, "fees": 0.21 },
+      { "id": "${id(CB60)}", "vCPU": 18, "RAM": 92, "SSD": 330, "hourly": null, "monthly": 63.96, "fees": 0.24 }
+    ],
     "standard": [
       { "id": "${id(CAX11)}", "vCPU": 2, "RAM": 3, "SSD": 30, "hourly": 0.0086, "monthly": 5.34, "fees": 0.11 },
       { "id": "${id(CAX21)}", "vCPU": 4, "RAM": 7, "SSD": 70, "hourly": 0.0152, "monthly": 9.51, "fees": 0.16 },
@@ -29,6 +38,7 @@
     ]
   },
   "fi": {
+    "hint": "Server aus dieser Kategorie sind in dieser Region derzeit nicht verfügbar.",
     "standard": [
       { "id": "${id(CAX11)}", "vCPU": 2, "RAM": 3, "SSD": 30, "hourly": 0.0086, "monthly": 5.34, "fees": 0.11 },
       { "id": "${id(CAX21)}", "vCPU": 4, "RAM": 7, "SSD": 70, "hourly": 0.0152, "monthly": 9.51, "fees": 0.16 },
@@ -58,6 +68,7 @@
     ]
   },
   "us": {
+    "hint": "Server aus dieser Kategorie sind in dieser Region derzeit nicht verfügbar.<br>Probiere es mit den Kategorien <b>Premium (AMD)</b> oder <b>Dedicated</b>.",
     "premium_amd": [
       { "id": "${id(CPX11)}", "vCPU": 2, "RAM": 1.5, "SSD": 30, "hourly": 0.0114, "monthly": 7.13, "fees": 0.17 },
       { "id": "${id(CPX21)}", "vCPU": 3, "RAM": 3, "SSD": 70, "hourly": 0.0228, "monthly": 14.27, "fees": 0.23 },
@@ -75,6 +86,7 @@
     ]
   },
   "sg": {
+    "hint": "Server aus dieser Kategorie sind in dieser Region derzeit nicht verfügbar.<br>Probiere es mit den Kategorien <b>Premium (AMD)</b> oder <b>Dedicated</b>.",
     "premium_amd": [
       { "id": "${id(CPX12)}", "vCPU": 1, "RAM": 1.5, "SSD": 30, "hourly": 0.0152, "monthly": 9.51, "fees": 0.14 },
       { "id": "${id(CPX22)}", "vCPU": 2, "RAM": 3, "SSD": 70, "hourly": 0.0305, "monthly": 19.03, "fees": 0.17 },
